@@ -20,7 +20,9 @@ public class LoginViewModel {
 
     public static class INSTANCE {
 
-        public static int ROLE_ADMIN = 1;
+        public static boolean isLogin = false;
+
+        public final static int ROLE_ADMIN = 1;
 
         public static ArrayList<User> dummyUser() {
             ArrayList<User> data = new ArrayList<>();
@@ -34,16 +36,20 @@ public class LoginViewModel {
                     for (User datum : data) {
                         if (username.equals(datum.getUsername()) && password.equals(datum.getPassword())) {
                             listener.onSucces(datum, "Berhasil Login");
+                            isLogin = true;
                             break;
                         } else {
+                            isLogin = false;
                             listener.onFailed("Username atau Password Tidak Boleh Kosong");
                         }
                     }
 
                 } else {
+                    isLogin = false;
                     listener.onFailed("Username atau Password Tidak Boleh Kosong");
                 }
             } else {
+                isLogin = false;
                 listener.onFailed("Username atau Password Tidak Boleh Kosong");
             }
         }
