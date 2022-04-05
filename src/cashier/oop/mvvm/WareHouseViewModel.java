@@ -16,11 +16,17 @@ import cashier.oop.model.Item;
 
 import java.util.ArrayList;
 
-import static cashier.oop.util.Constant.INSTANCE.ITEM_JENIS_MAKANAN;
-
 public class WareHouseViewModel {
 
     public static class INSTANCE {
+
+        public static final String ITEM_JENIS_MAKANAN = "Makanan"; // Constant untuk pengecekan percabangan ketika item makanan
+        public static final String ITEM_JENIS_MINUMAN = "Minuman"; // Constant untuk pengecekan percabangan ketika item minuman
+        public static final String ITEM_JENIS_SNACK = "Snack"; // Constant untuk pengecekan percabangan ketika item snack
+
+        public static final String BASE_ID_MAKANAN = "MAKANAN_";
+        public static final String BASE_ID_MINUMAN = "MINUMAN_";
+        public static final String BASE_ID_SNACK = "SNACK_";
 
         public static ArrayList<Item> dataProduct = new ArrayList<>();
 
@@ -52,21 +58,33 @@ public class WareHouseViewModel {
             dataProduct.set(index, produk);
         }
 
-        public static void showData(GetDataProductListener listener) {
-            for (int i = 0; i < dataProduct.size(); i++) {
-                listener.onShowDataProduct(i, dataProduct.get(i));
+        public static void showData(WareHouseListener.GetDataProduct listener) {
+            if (dataProduct.isEmpty()) {
+                listener.onEmptyDataProduct("Data produk kosong silahkan tambahkan produk");
+            } else {
+                for (int i = 0; i < dataProduct.size(); i++) {
+                    listener.onShowDataProduct(i, dataProduct.get(i));
+                }
+            }
+        }
+
+        public static void showData(String sortByJenis, WareHouseListener.GetDataProduct listener) {
+            if (dataProduct.isEmpty()) {
+                listener.onEmptyDataProduct("Data produk kosong silahkan tambahkan produk");
+            } else {
+                for (int i = 0; i < dataProduct.size(); i++) {
+                    if (dataProduct.get(i).getJenis().equals(sortByJenis)) {
+                        listener.onShowDataProduct(i, dataProduct.get(i));
+                    }
+                }
             }
         }
 
         public static void addDummyDataProduct() {
-            tambahProduct("1","MartabakSapi",31000, ITEM_JENIS_MAKANAN);
-            tambahProduct("2","MartabakSapiSpesial",39000, ITEM_JENIS_MAKANAN);
+            tambahProduct(BASE_ID_MAKANAN + "1", "Martabak Sapi", 31000, ITEM_JENIS_MAKANAN);
+            tambahProduct(BASE_ID_MAKANAN + "2", "Martabak Sapi Spesial", 39000, ITEM_JENIS_MAKANAN);
         }
 
-    }
-
-    public interface GetDataProductListener {
-        void onShowDataProduct(int index, Item produk);
     }
 
 }

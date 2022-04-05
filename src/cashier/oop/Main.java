@@ -1,11 +1,11 @@
 package cashier.oop;
 
-import cashier.oop.model.Item;
 import cashier.oop.model.User;
-import cashier.oop.mvvm.LoginViewModel;
-import cashier.oop.mvvm.WareHouseViewModel;
+import cashier.oop.mvvm.LoginListener;
+import cashier.oop.ui.LoginUI;
+import cashier.oop.ui.WareHouseUI;
 
-public class Main implements LoginViewModel.LoginListener, WareHouseViewModel.GetDataProductListener {
+public class Main implements LoginListener {
 
     public static void main(String[] args) {
         // write your code here
@@ -14,18 +14,12 @@ public class Main implements LoginViewModel.LoginListener, WareHouseViewModel.Ge
 
     @Override
     public void onSuccesLogin(User user, String message) {
-        WareHouseViewModel.INSTANCE.addDummyDataProduct();
-        WareHouseViewModel.INSTANCE.showData(new Main());
+        WareHouseUI.INSTANCE.createUI();
     }
 
     @Override
     public void onFailedLogin(String message) {
-
-    }
-
-    @Override
-    public void onShowDataProduct(int index, Item produk) {
-        System.out.println(index + ". " + produk.getNamaBarang());
+        System.out.println(message);
     }
 
 }

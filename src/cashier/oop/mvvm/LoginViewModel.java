@@ -30,7 +30,7 @@ public class LoginViewModel {
             return data;
         }
 
-        public static void login(ArrayList<User> data, String username, String password, LoginViewModel.LoginListener listener) {
+        public static void login(ArrayList<User> data, String username, String password, LoginListener listener) {
             if (username != null && password != null) {
                 if (!username.equals("") && !password.equals("")) {
                     for (User datum : data) {
@@ -54,17 +54,9 @@ public class LoginViewModel {
             }
         }
 
-        public static void login(String username, String password, LoginViewModel.LoginListener listener) {
+        public static void login(String username, String password, LoginListener listener) {
             login(dummyUser(), username, password, listener);
         }
-
-    }
-
-    public interface LoginListener {
-
-        void onSuccesLogin(User user, String message);
-
-        void onFailedLogin(String message);
 
     }
 
