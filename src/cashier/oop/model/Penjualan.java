@@ -15,13 +15,16 @@ package cashier.oop.model;
 import java.util.ArrayList;
 
 public class Penjualan {
+
     private String idPenjualan;
     private ArrayList<Item> product;
     private int totalTagihan = 0;
+    private String tanggal;
 
-    public Penjualan(String idPenjualan, ArrayList<Item> product) {
+    public Penjualan(String idPenjualan, ArrayList<Item> product, String tanggal) {
         this.idPenjualan = idPenjualan;
         this.product = product;
+        this.tanggal = tanggal;
         for (int i = 0; i < product.size(); i++) {
             totalTagihan = totalTagihan + product.get(i).hargaBarang;
         }
@@ -49,6 +52,14 @@ public class Penjualan {
 
     public void setTotalTagihan(int totalTagihan) {
         this.totalTagihan = totalTagihan;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 
 }

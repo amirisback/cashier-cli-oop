@@ -12,7 +12,7 @@ public class Main implements LoginListener {
     public static void main(String[] args) {
         // write your code here
         do {
-            LoginUI.INSTANCE.createUI(new Main());
+            LoginUI.createUI(new Main());
         } while (!MainViewModel.isExit);
     }
 

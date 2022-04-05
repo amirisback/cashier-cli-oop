@@ -3,8 +3,6 @@ package cashier.oop.ui;
 import cashier.oop.mvvm.LoginListener;
 import cashier.oop.mvvm.LoginViewModel;
 
-import java.util.Scanner;
-
 import static cashier.oop.util.Constant.*;
 
 
@@ -24,23 +22,20 @@ import static cashier.oop.util.Constant.*;
 
 public class LoginUI {
 
-    public static class INSTANCE {
+    public static void createUI(LoginListener listener) {
+        System.out.println(LINE_BORDER);
+        System.out.println("SELAMAT DATANG DI " + STORE_NAME.toUpperCase());
+        System.out.println("UNTUK MEMULAI APLIKASI " + APP_NAME.toUpperCase());
+        System.out.println("SILAHKAN LOGIN UNTUK MELANJUTKAN");
+        System.out.println(LINE_BORDER);
 
-        public static void createUI(LoginListener listener) {
-            System.out.println(LINE_BORDER);
-            System.out.println("SELAMAT DATANG DI " + STORE_NAME.toUpperCase());
-            System.out.println("UNTUK MEMULAI APLIKASI " + APP_NAME.toUpperCase());
-            System.out.println("SILAHKAN LOGIN UNTUK MELANJUTKAN");
-            System.out.println(LINE_BORDER);
-            Scanner inputLogin = new Scanner(System.in);
-            System.out.print("Username : ");
-            String username = inputLogin.nextLine();
-            System.out.print("Password : ");
-            String password = inputLogin.next();
-            System.out.println(LINE_BORDER);
-            LoginViewModel.login(username, password, listener);
-        }
+        System.out.print("Username : ");
+        String username = sc.nextLine();
+        System.out.print("Password : ");
+        String password = sc.next();
 
+        System.out.println(LINE_BORDER);
+        LoginViewModel.login(username, password, listener);
     }
 
 }

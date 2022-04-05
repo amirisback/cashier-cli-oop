@@ -1,4 +1,4 @@
-package cashier.oop.mvvm;
+package cashier.oop.ui;
 /*
  * Created by faisalamir on 05/04/22
  * cashier-cli-oop
@@ -12,14 +12,5 @@ package cashier.oop.mvvm;
  *
  */
 
-import cashier.oop.model.Penjualan;
-
-public interface SellerListener {
-
-    interface GetDataPenjualan {
-        void onShowDataPenjualan(int index, Penjualan penjualan);
-
-        void onEmptyDataPenjualan(String message);
-    }
-
+public class SellerUI {
 }

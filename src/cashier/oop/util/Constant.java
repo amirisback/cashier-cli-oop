@@ -12,6 +12,11 @@ package cashier.oop.util;
  *
  */
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
 public class Constant {
 
     // Setting Apps Variable Constant ----------------------------------------------------------------------------------
@@ -25,5 +30,12 @@ public class Constant {
     // Penjelasan LINE_BORDER : Constanta Untuk Tampilan Border aplikasi, dibuat constanta agar mudah merubah gaya tampilan aplikasi
     public static final String LINE_BORDER = "-------------------------------------------------------";
     public static final String SIMPLE_DATE_FORMAT = "dd/MM/yyyy HH:mm:ss"; // Constant Untuk Format Tanggal Saat ini
+    public static final Scanner sc = new Scanner(System.in);
+
+    public static String getDateTimeNow() {
+        DateFormat dateFormat = new SimpleDateFormat(SIMPLE_DATE_FORMAT);
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
 
 }

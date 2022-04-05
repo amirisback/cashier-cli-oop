@@ -18,13 +18,10 @@ import cashier.oop.mvvm.MainViewModel;
 import cashier.oop.mvvm.WareHouseListener;
 import cashier.oop.mvvm.WareHouseViewModel;
 
-import java.util.Scanner;
-
 import static cashier.oop.util.Constant.LINE_BORDER;
+import static cashier.oop.util.Constant.sc;
 
 public class WareHouseUI implements WareHouseListener.GetDataProduct {
-
-    private static final Scanner sc = new Scanner(System.in);
 
     public static void createUI() {
         do {
