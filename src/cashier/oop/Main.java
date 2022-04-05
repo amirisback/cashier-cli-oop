@@ -1,24 +1,31 @@
 package cashier.oop;
 
-import cashier.oop.mvvm.LoginViewModel;
+import cashier.oop.model.Item;
 import cashier.oop.model.User;
+import cashier.oop.mvvm.LoginViewModel;
+import cashier.oop.mvvm.WareHouseViewModel;
 
-public class Main {
+public class Main implements LoginViewModel.LoginListener, WareHouseViewModel.GetDataProductListener {
 
     public static void main(String[] args) {
         // write your code here
+        LoginUI.INSTANCE.createUI(new Main());
+    }
 
-        LoginUI.INSTANCE.createUI(new LoginViewModel.LoginListener() {
-            @Override
-            public void onSucces(User user, String message) {
-                System.out.println(message);
-            }
+    @Override
+    public void onSuccesLogin(User user, String message) {
+        WareHouseViewModel.INSTANCE.addDummyDataProduct();
+        WareHouseViewModel.INSTANCE.showData(new Main());
+    }
 
-            @Override
-            public void onFailed(String message) {
-                System.out.println(message);
-            }
-        });
+    @Override
+    public void onFailedLogin(String message) {
 
     }
+
+    @Override
+    public void onShowDataProduct(int index, Item produk) {
+        System.out.println(index + ". " + produk.getNamaBarang());
+    }
+
 }

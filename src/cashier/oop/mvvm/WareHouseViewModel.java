@@ -16,6 +16,8 @@ import cashier.oop.model.Item;
 
 import java.util.ArrayList;
 
+import static cashier.oop.util.Constant.INSTANCE.ITEM_JENIS_MAKANAN;
+
 public class WareHouseViewModel {
 
     public static class INSTANCE {
@@ -54,6 +56,11 @@ public class WareHouseViewModel {
             for (int i = 0; i < dataProduct.size(); i++) {
                 listener.onShowDataProduct(i, dataProduct.get(i));
             }
+        }
+
+        public static void addDummyDataProduct() {
+            tambahProduct("1","MartabakSapi",31000, ITEM_JENIS_MAKANAN);
+            tambahProduct("2","MartabakSapiSpesial",39000, ITEM_JENIS_MAKANAN);
         }
 
     }

@@ -35,22 +35,22 @@ public class LoginViewModel {
                 if (!username.equals("") && !password.equals("")) {
                     for (User datum : data) {
                         if (username.equals(datum.getUsername()) && password.equals(datum.getPassword())) {
-                            listener.onSucces(datum, "Berhasil Login");
+                            listener.onSuccesLogin(datum, "Berhasil Login");
                             isLogin = true;
                             break;
                         } else {
                             isLogin = false;
-                            listener.onFailed("Username atau Password Salah");
+                            listener.onFailedLogin("Username atau Password Salah");
                         }
                     }
 
                 } else {
                     isLogin = false;
-                    listener.onFailed("Username atau Password Tidak Boleh Kosong");
+                    listener.onFailedLogin("Username atau Password Tidak Boleh Kosong");
                 }
             } else {
                 isLogin = false;
-                listener.onFailed("Username atau Password Tidak Boleh Kosong");
+                listener.onFailedLogin("Username atau Password Tidak Boleh Kosong");
             }
         }
 
@@ -62,9 +62,9 @@ public class LoginViewModel {
 
     public interface LoginListener {
 
-        void onSucces(User user, String message);
+        void onSuccesLogin(User user, String message);
 
-        void onFailed(String message);
+        void onFailedLogin(String message);
 
     }
 
