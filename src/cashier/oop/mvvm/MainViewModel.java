@@ -12,5 +12,13 @@ package cashier.oop.mvvm;
  *
  */
 
-interface SellerListener {
+public class MainViewModel {
+
+    public static boolean isExit = false;
+
+    public static void doExit() {
+        LoginViewModel.doLogout();
+        isExit = true;
+    }
+
 }

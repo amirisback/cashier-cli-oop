@@ -1,12 +1,12 @@
 package cashier.oop.ui;
 
-import cashier.oop.model.User;
 import cashier.oop.mvvm.LoginListener;
 import cashier.oop.mvvm.LoginViewModel;
 
 import java.util.Scanner;
 
-import static cashier.oop.util.Constant.INSTANCE.*;
+import static cashier.oop.util.Constant.*;
+
 
 /*
  * Created by faisalamir on 05/04/22
@@ -37,8 +37,8 @@ public class LoginUI {
             String username = inputLogin.nextLine();
             System.out.print("Password : ");
             String password = inputLogin.next();
-            System.out.print(LINE_BORDER);
-            LoginViewModel.INSTANCE.login(username, password, listener);
+            System.out.println(LINE_BORDER);
+            LoginViewModel.login(username, password, listener);
         }
 
     }
