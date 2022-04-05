@@ -16,11 +16,11 @@ public class Item extends BaseItem {
 
     protected String jenis;
 
-    public Item(String idBarang, String namaBarang, String hargaBarang) {
+    public Item(String idBarang, String namaBarang, int hargaBarang) {
         super(idBarang, namaBarang, hargaBarang);
     }
 
-    public Item(String idBarang, String namaBarang, String hargaBarang, String jenis) {
+    public Item(String idBarang, String namaBarang, int hargaBarang, String jenis) {
         super(idBarang, namaBarang, hargaBarang);
         this.jenis = jenis;
     }

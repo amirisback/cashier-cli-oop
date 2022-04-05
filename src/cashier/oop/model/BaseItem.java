@@ -16,9 +16,9 @@ abstract class BaseItem {
 
     protected String idBarang;
     protected String namaBarang;
-    protected String hargaBarang;
+    protected int hargaBarang;
 
-    public BaseItem(String idBarang, String namaBarang, String hargaBarang) {
+    public BaseItem(String idBarang, String namaBarang, int hargaBarang) {
         this.idBarang = idBarang;
         this.namaBarang = namaBarang;
         this.hargaBarang = hargaBarang;
@@ -40,11 +40,11 @@ abstract class BaseItem {
         this.namaBarang = namaBarang;
     }
 
-    public String getHargaBarang() {
+    public int getHargaBarang() {
         return hargaBarang;
     }
 
-    public void setHargaBarang(String hargaBarang) {
+    public void setHargaBarang(int hargaBarang) {
         this.hargaBarang = hargaBarang;
     }
 }

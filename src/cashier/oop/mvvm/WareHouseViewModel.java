@@ -12,5 +12,54 @@ package cashier.oop.mvvm;
  *
  */
 
+import cashier.oop.model.Item;
+
+import java.util.ArrayList;
+
 public class WareHouseViewModel {
+
+    public static class INSTANCE {
+
+        public static ArrayList<Item> dataProduct = new ArrayList<>();
+
+        public static void tambahProduct(String idProduct, String namaProduct, int hargaProduct, String jenisProduct) {
+            dataProduct.add(new Item(idProduct, namaProduct, hargaProduct, jenisProduct));
+        }
+
+        public static void hapusSemua() {
+            dataProduct.removeAll(dataProduct);
+        }
+
+        public static void hapusProductByNama(String namaProduct) {
+            dataProduct.removeIf(n -> (n.getNamaBarang().equals(namaProduct)));
+        }
+
+        public static void hapusProductById(String idProduct) {
+            dataProduct.removeIf(n -> (n.getIdBarang().equals(idProduct)));
+        }
+
+        public static void hapusProductByJenis(String jenisProduct) {
+            dataProduct.removeIf(n -> (n.getJenis().equals(jenisProduct)));
+        }
+
+        public static void hapusProductByHarga(int hargaBarang) {
+            dataProduct.removeIf(n -> (n.getHargaBarang() == hargaBarang));
+        }
+
+        public static void ubahProduct(int index, Item produk) {
+            dataProduct.set(index, produk);
+        }
+
+        public static void showData(GetDataProductListener listener) {
+            for (int i = 0; i < dataProduct.size(); i++) {
+                listener.onShowDataProduct(i, dataProduct.get(i));
+            }
+        }
+
+    }
+
+    public interface GetDataProductListener {
+        void onShowDataProduct(int index, Item produk);
+    }
+
 }

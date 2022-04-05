@@ -40,7 +40,7 @@ public class LoginViewModel {
                             break;
                         } else {
                             isLogin = false;
-                            listener.onFailed("Username atau Password Tidak Boleh Kosong");
+                            listener.onFailed("Username atau Password Salah");
                         }
                     }
 

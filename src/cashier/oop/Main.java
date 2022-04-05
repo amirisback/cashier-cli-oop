@@ -8,10 +8,9 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
 
-        LoginViewModel.INSTANCE.login("admin", "", new LoginViewModel.LoginListener() {
+        LoginUI.INSTANCE.createUI(new LoginViewModel.LoginListener() {
             @Override
             public void onSucces(User user, String message) {
-                System.out.println(user.getNama());
                 System.out.println(message);
             }
 
