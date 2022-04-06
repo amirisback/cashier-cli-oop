@@ -1,5 +1,7 @@
 package cashier.oop.ui;
 
+import cashier.oop.core.CoreUI;
+import cashier.oop.model.User;
 import cashier.oop.mvvm.LoginListener;
 import cashier.oop.mvvm.LoginViewModel;
 
@@ -20,9 +22,9 @@ import static cashier.oop.util.Constant.*;
  */
 
 
-public class LoginUI {
+public class LoginUI extends CoreUI implements LoginListener {
 
-    public static void createUI(LoginListener listener) {
+    public static void createUI() {
         System.out.println(LINE_BORDER);
         System.out.println("SELAMAT DATANG DI " + STORE_NAME.toUpperCase());
         System.out.println("UNTUK MEMULAI APLIKASI " + APP_NAME.toUpperCase());
@@ -35,7 +37,18 @@ public class LoginUI {
         String password = sc.next();
 
         System.out.println(LINE_BORDER);
-        LoginViewModel.login(username, password, listener);
+        LoginViewModel.login(username, password, new LoginUI());
     }
 
+    @Override
+    public void onSuccesLogin(User user, String message) {
+        do {
+            WareHouseUI.createUI();
+        } while (LoginViewModel.isLogin);
+    }
+
+    @Override
+    public void onFailedLogin(String message) {
+        System.out.println(message);
+    }
 }

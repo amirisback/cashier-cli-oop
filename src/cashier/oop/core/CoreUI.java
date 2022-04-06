@@ -1,4 +1,4 @@
-package cashier.oop.ui;
+package cashier.oop.core;
 /*
  * Created by faisalamir on 05/04/22
  * cashier-cli-oop
@@ -12,7 +12,8 @@ package cashier.oop.ui;
  *
  */
 
-import cashier.oop.core.CoreUI;
+public abstract class CoreUI {
 
-public class SellerUI extends CoreUI {
+
+
 }

@@ -12,6 +12,7 @@ package cashier.oop.ui;
  *
  */
 
+import cashier.oop.core.CoreUI;
 import cashier.oop.model.Item;
 import cashier.oop.mvvm.LoginViewModel;
 import cashier.oop.mvvm.MainViewModel;
@@ -21,7 +22,7 @@ import cashier.oop.mvvm.WareHouseViewModel;
 import static cashier.oop.util.Constant.LINE_BORDER;
 import static cashier.oop.util.Constant.sc;
 
-public class WareHouseUI implements WareHouseListener.GetDataProduct {
+public class WareHouseUI extends CoreUI implements WareHouseListener.GetDataProduct {
 
     public static void createUI() {
         do {
